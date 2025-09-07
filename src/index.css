@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+    /* Font */
+    --font-dm-sans: 'dmsans', sans-serif;
+
+    /* Colors */
+    --color-white-custom: #F9FAFB;
+    --color-blue-light: #7CA9F3;
+    --color-blue-dark: #263FA9;
+    --color-black-custom: #040711;
+    --color-grey-100: #D2D5DA;
+    --color-grey-200: #212936CC;
+    --color-grey-300: #4D5562;
+    --color-grey-400: #121826CC;
+    --color-grey-500: #121826CC;
+}
+
+@layer base {
+
+    @font-face {
+        font-family: "dmsans";
+        src: url("/fonts/DMSans-Light.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "dmsans";
+        src: url("/fonts/DMSans-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "dmsans";
+        src: url("/fonts/DMSans-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "dmsans";
+        src: url("/fonts/DMSans-SemiBold.ttf") format("truetype");
+        font-weight: 600;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "dmsans";
+        src: url("/fonts/DMSans-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    html, body {
+        @apply w-full h-screen font-dm-sans bg-black-custom;
+    }
+}
+
+@layer utilities {
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+}
+
+@layer components {
+
+    .custom-toast {
+        @apply w-fit !text-base !text-white-custom !bg-grey-400;
+    }
+
+    .custom-toast.error {
+        @apply !text-red-300;
+    }
+
+    .translation-boxes-wrapper {
+        @apply fixed inset-0 size-full flex flex-col items-center xl:flex-row xl:justify-center gap-4 pt-44 pb-20 xl:py-0 xl:px-4 overflow-y-auto;
+
+        .translation-box {
+            @apply w-[90%] xl:w-[640px] h-[360px] px-6 rounded-3xl border border-grey-300 bg-grey-200/80;
+
+            .translation-box-top {
+                @apply h-[80px] flex items-center gap-4 pt-2 border-b border-grey-300;
+
+                .language-select-button {
+                    @apply w-fit py-2 px-3 text-sm rounded-xl cursor-pointer transition-colors duration-300 text-white-custom hover:bg-grey-300;
+                }
+
+                .invert-langs-btn {
+                    @apply size-9 rounded-xl cursor-pointer ml-auto transition-all duration-300 border-2 not-disabled:hover:bg-grey-200 border-grey-300 disabled:opacity-50 disabled:cursor-not-allowed;
+                }
+            }
+
+            .translation-box-middle {
+                @apply h-[200px] flex flex-col;
+
+                .translation-result-area {
+                    @apply w-full h-[176px] pt-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden overflow-y-auto;
+
+                    p {
+                        @apply font-semibold text-white-custom;
+                    }
+                }
+
+                .translation-textarea {
+                    @apply w-full h-full border-none outline-none font-semibold pt-6 resize-none text-white-custom placeholder:text-grey-300 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden;
+                }
+
+                .informational-message {
+                    @apply text-xs text-orange-300;
+                }
+
+                .characters-counter {
+                    @apply text-xs ml-auto text-grey-100;
+                }
+            }
+
+            .translation-box-bottom {
+                @apply h-[80px] flex items-center justify-between;
+
+                .translation-box-actions {
+                    @apply flex items-center gap-4;
+                }
+
+                .box-action-btn {
+                    @apply size-9 rounded-xl cursor-pointer transition-all duration-300 border-2 not-disabled:hover:bg-grey-200 border-grey-300 disabled:opacity-50 disabled:cursor-not-allowed;
+                }
+
+                .translate-btn {
+                    @apply w-fit gap-3 px-6 py-2.5 cursor-pointer rounded-lg disabled:cursor-not-allowed disabled:opacity-40 transition-all duration-300 border border-blue-light bg-blue-dark not-disabled:hover:bg-blue-dark/60;
+
+                    p {
+                        @apply text-sm font-semibold text-white-custom;
+                    }
+                }
+            }
+        }
+    }
+}
