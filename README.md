@@ -8,15 +8,15 @@
 
 <div align="center">
   <h3>
-    <a href="{https://your-demo-link.your-domain}">
+    <a href="https://translate-app-three-theta.vercel.app/" target="_blank">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/AllanRS19/translate-app">
+    <a href="https://github.com/AllanRS19/translate-app" target="_blank">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenge/translate-app">
+    <a href="https://devchallenges.io/challenge/translate-app" target="_blank">
       Challenge
     </a>
   </h3>

@@ -63,7 +63,7 @@
 @layer components {
 
     .custom-toast {
-        @apply w-fit !text-base !text-white-custom !bg-grey-400;
+        @apply w-fit !text-base !text-white-custom !bg-[#121826];
     }
 
     .custom-toast.error {
