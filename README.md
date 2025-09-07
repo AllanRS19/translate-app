@@ -1,69 +1,76 @@
-# React + TypeScript + Vite
+<!-- Please update value in the {}  -->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">{Your project name} | devChallenges</h1>
 
-Currently, two official plugins are available:
+<div align="center">
+   Solution for a challenge <a href="https://devchallenges.io/challenge/translate-app" target="_blank">Translate app</a> from <a href="http://devchallenges.io" target="_blank">devChallenges.io</a>.
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div align="center">
+  <h3>
+    <a href="{https://your-demo-link.your-domain}">
+      Demo
+    </a>
+    <span> | </span>
+    <a href="https://github.com/AllanRS19/translate-app">
+      Solution
+    </a>
+    <span> | </span>
+    <a href="https://devchallenges.io/challenge/translate-app">
+      Challenge
+    </a>
+  </h3>
+</div>
 
-## Expanding the ESLint configuration
+<!-- TABLE OF CONTENTS -->
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Table of Contents
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [Overview](#overview)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Built with](#built-with)
+- [Features](#features)
+- [Contact](#author)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+<!-- OVERVIEW -->
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Overview
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+![screenshot](/public/screenshots/screenshot.png)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### What I learned
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+During this project build, I learned how to manage global state in my application using Zustand. I learned how to effectively utilize the Web Speech API to convert the text into speech.
+
+### Useful resources
+
+- [W3Schools](https://www.w3schools.com/) - This resource helped me verify the Web Browser API to convert the text written into voice.
+-->
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- [React](https://reactjs.org/)
+- [Vite](https://vite.dev/guide/)
+- [Tailwind](https://tailwindcss.com/)
+- [Zustand](https://zustand.docs.pmnd.rs/)
+
+## Features
+
+- Text translation.
+- Convert text to speech.
+- Copy text.
+- Select language.
+- Fields validation.
+- Custom toasts.
+- Characters counter.
+
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges-dashboard) challenge.
+
+## Author
+
+- Website: [https://allanromero-portfolio.vercel.app](https://allanromero-portfolio.vercel.app)
+- GitHub: [@AllanRS19](https://github.com/AllanRS19)

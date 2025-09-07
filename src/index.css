@@ -70,6 +70,10 @@
         @apply !text-red-300;
     }
 
+    .copyright {
+        @apply fixed top-0 left-0 right-0 w-full py-3 z-10 bg-grey-400;
+    }
+
     .translation-boxes-wrapper {
         @apply fixed inset-0 size-full flex flex-col items-center xl:flex-row xl:justify-center gap-4 pt-44 pb-20 xl:py-0 xl:px-4 overflow-y-auto;
 

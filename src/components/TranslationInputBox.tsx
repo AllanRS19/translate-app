@@ -6,7 +6,7 @@ import { languages, translationBoxActionBtns } from "../constants";
 
 const TranslationInputBox = () => {
 
-    const { isTranslating, internalTranslatingText, resetInternalTranslatingText, translatingTextLang, translateText, handleLangChange } = useTranslationStore();
+    const { isTranslating, translatingTextLang, translateText, handleLangChange } = useTranslationStore();
 
     const [translatingText, setTranslatingText] = useState("Hello, how are you?");
     const [infoMessage, setInfoMessage] = useState("");
@@ -17,10 +17,6 @@ const TranslationInputBox = () => {
     }
 
     const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        if (internalTranslatingText.trim()) {
-            resetInternalTranslatingText();
-        }
-        
         const newValue = e.target.value;
 
         if (translatingText.length === 500 && !isBackspaceCliked && newValue.length > translatingText.length) {
@@ -61,6 +57,15 @@ const TranslationInputBox = () => {
         }
     }
 
+    const handleTranslateText = async (textToTranslate: string) => {
+        const res = await translateText(textToTranslate);
+        if (typeof res === 'object') {
+            if (res.translateError) {
+                toast.error(res.translateError, {className: "custom-toast error"});
+            }
+        }
+    }
+
     return (
         <div className="translation-box">
             <div className="translation-box-top">
@@ -85,7 +90,7 @@ const TranslationInputBox = () => {
                     autoFocus
                     maxLength={500}
                     required
-                    value={internalTranslatingText || translatingText}
+                    value={translatingText}
                     onKeyDown={checkPressedKey}
                     onChange={handleTextareaChange}
                     disabled={isTranslating}
@@ -95,10 +100,10 @@ const TranslationInputBox = () => {
                     <p
                         className={cn(
                             "characters-counter",
-                            internalTranslatingText.length === 500 || translatingText.length === 500 && "text-orange-300"
+                            translatingText.length === 500 && "text-orange-300"
                         )}
                     >
-                        {internalTranslatingText.length || translatingText.length}/500
+                        {translatingText.length}/500
                     </p>
                 </div>
             </div>
@@ -122,7 +127,7 @@ const TranslationInputBox = () => {
                 <button
                     className="translate-btn flex-center"
                     disabled={translatingText.length === 0 || isTranslating}
-                    onClick={() => translateText(translatingText)}
+                    onClick={() => handleTranslateText(translatingText)}
                 >
                     <img src="/icons/sort_alfa.webp" alt="Sort Alfa" className="size-6" />
                     <p>{isTranslating ? "Translating text..." : "Translate"}</p>

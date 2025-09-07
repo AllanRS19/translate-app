@@ -20,12 +20,10 @@ declare interface TranslationBoxActionBtns {
 
 type UseTranslationStoreProps = {
     isTranslating: boolean;
-    internalTranslatingText: string;
     translatedText: string;
     translatingTextLang: string;
     translatedTextLang: string;
-    resetInternalTranslatingText: () => void;
     handleLangChange: (lang: string, type: 'from' | 'to') => void;
     handleInvertLanguages: () => void;
-    translateText: (textToTranslate: string) => void;
+    translateText: (textToTranslate: string) => Promise<string | { translateError: string }>;
 }
